@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup Form</title>
+</head>
+<body>
+<div class="welcome">
+    <p>Welcome to the web application</p>
+    <div class="day">
+        <p>Today is {{ day_is }}</p>
+        <p>Time is {{ current_time }}</p>
+        <div class="form_data">
+            <form method="POST" action="/signup">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter your name">
+                <br>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email">
+                <br>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter your password">
+                <br>
+                <input type="submit" value="Sign Up">
+            </form>
+            <a href="get_data"><button>View Data</button></a>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: cadetblue;
+    }
+    .welcome {
+        text-align: center;
+        font-size: 30px;
+        font-family: "Arial Narrow";
+        color: blue;
+    }
+    .day {
+        text-align: center;
+        font-size: 30px;
+        font-family: "Arial Narrow";
+        color: yellow;
+    }
+    .form_data {
+        text-align: center;
+        font-size: 20px;
+        font-family: "Arial Narrow";
+        color: black;
+    }
+</style>
+</body>
+</html>
