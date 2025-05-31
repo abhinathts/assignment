@@ -1,0 +1,34 @@
+version: '3.6'
+
+services:
+  #since frontend is depended on backend build backend service first
+  backend:
+    build: ./backend
+    # backend is the directory name
+    hostname: backend-host
+    volumes:
+      - ./backend:/app
+    #map backend directory to /app directory
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+  frontend:
+    build: ./frontend
+    # frontend is the directory name
+    hostname: frontend-host
+    volumes:
+      - ./frontend:/app
+    #map frontend directory to /app directory
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    environment:
+      - BACKEND_URL=http://backend-host:8080/
+    links:
+      - backend
+    #to link backend
+
+networks:
+  app-network: {}
